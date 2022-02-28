@@ -57,6 +57,9 @@ def feature_selection_using_tree(x, y):
         print('Feature: %0d, Score: %.5f' % (i, v))
     # plot feature importance
     pyplot.bar([x for x in range(len(importance))], importance)
+    pyplot.title('Feature Importances Plot')
+    plt.ylabel('Score')
+    plt.xlabel('Features')
     pyplot.show()
 
     print('Before selection: ', x.shape)
@@ -68,13 +71,13 @@ def feature_selection_using_tree(x, y):
     return x
 
 
-def feature_extraction_using_pca(x, y, num_of_var, threshold):
+def feature_extraction_using_pca(x, num_of_var, threshold):
     pca = PCA(n_components=num_of_var)
     principal_components = pca.fit_transform(x)
     principalDf = pd.DataFrame(data=principal_components)
 
     percent_variance = np.round(pca.explained_variance_ratio_ * 100, decimals=2)
-    plt.bar(x=range(0, 18), height=percent_variance, tick_label=principalDf.columns)
+    plt.bar(x=range(0, num_of_var), height=percent_variance, tick_label=principalDf.columns)
     plt.ylabel('Percentate of Variance Explained')
     plt.xlabel('Principal Component')
     plt.title('PCA Scree Plot')
