@@ -39,7 +39,7 @@ def encode_data(x, y):
     label = label_encoder.fit_transform(y)
 
     data = encoded_data + label
-    print(data.head())
+    print(data.head)
 
     return encode_data, label
 
