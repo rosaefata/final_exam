@@ -95,7 +95,7 @@ def feature_extraction_using_pca(x, num_of_var, threshold):
         if extracted_feature is None:
             extracted_feature = principalDf[idx]
         else:
-            extracted_feature = pd.concat((extracted_feature, principalDf[i]), axis=1)
+            extracted_feature = pd.concat((extracted_feature, principalDf[idx]), axis=1)
 
         idx = idx + 1
     return extracted_feature
