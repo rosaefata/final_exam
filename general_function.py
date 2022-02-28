@@ -37,7 +37,7 @@ def encode_data(x, y):
             encoded_data = pd.concat((encoded_data, feature_df), axis=1)
 
     label = label_encoder.fit_transform(y)
-    label_df = pd.DataFrame(feature, columns=['Class'])
+    label_df = pd.DataFrame(label, columns=['Class'])
 
     data = pd.concat((encoded_data, label_df), axis=1)
     print(data.head(n=5))
