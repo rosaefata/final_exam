@@ -86,17 +86,18 @@ def feature_extraction_using_pca(x, num_of_var, threshold):
 
     total_variance = 0
     extracted_feature = None
-    
+    idx = 0
     for i in percent_variance:
         if total_variance > threshold:
             break
 
         total_variance = total_variance + i
         if extracted_feature is None:
-            extracted_feature = principalDf[i]
+            extracted_feature = principalDf[idx]
         else:
             extracted_feature = pd.concat((extracted_feature, principalDf[i]), axis=1)
 
+        idx = idx + 1
     return extracted_feature
 
 
