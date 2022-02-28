@@ -8,6 +8,7 @@ from sklearn.feature_selection import SelectFromModel
 from sklearn.decomposition import PCA
 import matplotlib.pyplot as plt
 import numpy as np
+from imblearn.over_sampling import ADASYN
 
 
 def load_data(file_name, num_of_var):
@@ -91,6 +92,13 @@ def feature_extraction_using_pca(x, y, num_of_var, threshold):
     return extracted_feature
 
 
+def oversampling_adasyn(x, y):
+    print('Before Resample: ', y.value_counts())
+    oversample = ADASYN(sampling_strategy='minority', random_state=8, n_neighbors=3)
+    x, y = oversample.fit_resample(x, y)
+    print('After Resample: ', y.value_counts())
+
+
 def generate_report(y_train, y_test, y_pred_train, y_pred_test):
     print(classification_report(y_pred_train, y_train))
 
@@ -119,5 +127,3 @@ def generate_report(y_train, y_test, y_pred_train, y_pred_test):
     plt.title('Testing')
     plt.legend(loc=4)
     plt.show()
-
-
