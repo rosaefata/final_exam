@@ -61,7 +61,7 @@ def feature_selection_using_tree(x, y):
 
     print('Before selection: ', x.shape)
 
-    feature_select_model = SelectFromModel(tree_model, prefit=True)
+    feature_select_model = SelectFromModel(tree_model, threshold='median', prefit=True)
     x = feature_select_model.transform(x)
 
     print('After selection: ', x.shape)
