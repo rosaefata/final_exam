@@ -39,10 +39,10 @@ def encode_data(x, y):
     label = label_encoder.fit_transform(y)
     label_df = pd.DataFrame(feature, columns=['Class'])
 
-    data = encoded_data + label_df
-    print(data.head)
+    data = pd.concat((encoded_data, label_df), axis=1)
+    print(data.head(n=5))
 
-    return encode_data, label
+    return encoded_data, label_df
 
 
 def feature_selection_using_tree(x, y):
