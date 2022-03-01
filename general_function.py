@@ -55,20 +55,20 @@ def encode_data_to_one_hot(x, y):
         onehot_encoder = OneHotEncoder(sparse=False, categories='auto')
         feature = onehot_encoder.fit_transform(feature)
 
-        column = [col]
-        feature_df = pd.DataFrame(feature, columns=column)
         if encoded_data is None:
-            encoded_data = feature_df
+            encoded_data = feature
         else:
-            encoded_data = pd.concat((encoded_data, feature_df), axis=1)
+            encoded_data = np.concatenate((encoded_data, feature), axis=1)
+
+    feature_df = pd.DataFrame(encoded_data)
 
     label = label_encoder.fit_transform(y)
     label_df = pd.DataFrame(label, columns=['Class'])
 
-    data = pd.concat((encoded_data, label_df), axis=1)
+    data = pd.concat((feature_df, label_df), axis=1)
     print(data.head(n=5))
 
-    return encoded_data, label_df
+    return feature_df, label_df
 
 
 def feature_selection_using_tree(x, y):
