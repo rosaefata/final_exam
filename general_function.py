@@ -1,6 +1,6 @@
 from pandas import read_csv
 from sklearn.metrics import classification_report, confusion_matrix, roc_auc_score, roc_curve
-from sklearn.preprocessing import LabelEncoder
+from sklearn.preprocessing import LabelEncoder, OneHotEncoder
 import pandas as pd
 from sklearn.tree import DecisionTreeClassifier
 from matplotlib import pyplot
