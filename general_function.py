@@ -45,6 +45,32 @@ def encode_data(x, y):
     return encoded_data, label_df
 
 
+def encode_data_to_one_hot(x, y):
+    encoded_data = None
+    for col in x:
+        label_encoder = LabelEncoder()
+        feature = label_encoder.fit_transform(x[col])
+        feature = feature.reshape(x.shape[0], 1)
+
+        onehot_encoder = OneHotEncoder(sparse=False, categories='auto')
+        feature = onehot_encoder.fit_transform(feature)
+
+        column = [col]
+        feature_df = pd.DataFrame(feature, columns=column)
+        if encoded_data is None:
+            encoded_data = feature_df
+        else:
+            encoded_data = pd.concat((encoded_data, feature_df), axis=1)
+
+    label = label_encoder.fit_transform(y)
+    label_df = pd.DataFrame(label, columns=['Class'])
+
+    data = pd.concat((encoded_data, label_df), axis=1)
+    print(data.head(n=5))
+
+    return encoded_data, label_df
+
+
 def feature_selection_using_tree(x, y):
     # define the model
     tree_model = DecisionTreeClassifier()
@@ -98,6 +124,8 @@ def feature_extraction_using_pca(x, num_of_var, threshold):
             extracted_feature = pd.concat((extracted_feature, principalDf[idx]), axis=1)
 
         idx = idx + 1
+
+    print('Total Variance: ', total_variance)
     return extracted_feature
 
 
