@@ -63,9 +63,7 @@ def encode_data_to_one_hot(x, y):
     feature_df = pd.DataFrame(encoded_data)
 
     label = label_encoder.fit_transform(y)
-    label = label.reshape(-1, 1)
-    label = onehot_encoder.fit_transform(label)
-    label_df = pd.DataFrame(label)
+    label_df = pd.DataFrame(label, columns=['Class'])
 
     return feature_df, label_df
 
