@@ -1,0 +1,53 @@
+curl --location --request POST 'http://localhost:5000/skin-type' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "oiliness":[
+        "Sangat kasar, berkelupas, atau pucat",
+        "Sering",
+        "Terkelupas atau berlapis kerutan",
+        "Terlihat berkilau, atau saya tidak pernah merasa membutuhkan pelembab",
+        "Kering",
+        "Terasa sedikit kering tapi tidak pecah-pecah",
+        "Tidak pernah",
+        "Mengkilap dan licin, atau saya tidak menggunakan pelembab"
+    ],
+    "tightness":[
+        "Ya, sedikit saat menggerakkan wajah dan sedikit saat diam tanpa gerakan",
+        "Tak dapat diterapkan. Saya diadopsi atau saya tidak ingat",
+        "Tak dapat diterapkan. Saya diadopsi atau saya tidak ingat",
+        "Lima sampai sepuluh tahun",
+        "Lima sampai sepuluh tahun",
+        "Sesuai usia",
+        "Sekali seminggu",
+        "Lima sampai sepuluh kali",
+        "Udara sangat tercemar",
+        "Kadang-kadang",
+        "Sekali sehari",
+        "25-75 persen",
+        "Putih"
+    ],
+    "sensitivity":[
+        "Minimal sebulan sekali",
+        "Sering",
+        "Tidak",
+        "Tidak pernah",
+        "Tidak pernah",
+        "Tidak pernah",
+        "Tidak pernah",
+        "Ya",
+        "Tidak pernah",
+        "Tidak pernah",
+        "Sedikit (satu sampai tiga di seluruh wajah, termasuk hidung)",
+        "Sering",
+        "Sering"
+    ],
+    "pigmentation":[
+        "Selalu",
+        "Bulan",
+        "Banyak",
+        "Ya, sangat mencolok",
+        "Jauh lebih buruk",
+        "Ya, ton (enam belas atau lebih)",
+        "Tidak"
+    ]
+}'
