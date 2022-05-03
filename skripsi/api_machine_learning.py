@@ -30,8 +30,7 @@ def query_example():
     pigmentation_ans = pigmentation_ans.reshape(1, 7)
     pigmentation = skin_prediction.get_pigmentation_skin_type(pigmentation_ans)
 
-    print("udh disini")
-    result = oiliness+tightness+sensitivity+pigmentation
+    result = oiliness+sensitivity+pigmentation+tightness
     skin_type = {'skin-type':result}
 
     return jsonify(skin_type)
