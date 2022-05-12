@@ -43,9 +43,9 @@ def get_oiliness_skin_type(oiliness_ans):
     print('Oiliness:', proba)
 
     if prediction_result[0] == 0:
-        return 'D'
+        return 'D', proba[0][0]
     else:
-        return 'O'
+        return 'O', proba[0][1]
 
 def get_tightness_skin_type(tightness_ans):
     # load data
@@ -98,9 +98,9 @@ def get_tightness_skin_type(tightness_ans):
     print('Tightness:', proba)
 
     if prediction_result[0] == 0:
-        return 'T'
+        return 'T', proba[0][0]
     else:
-        return 'W'
+        return 'W', proba[0][1]
 
 def get_sensitivity_skin_type(sensitivity_ans):
     # load data
@@ -136,9 +136,9 @@ def get_sensitivity_skin_type(sensitivity_ans):
     print('Sensitivity:', proba)
 
     if prediction_result[0] == 0:
-        return 'R'
+        return 'R', proba[0][0]
     else:
-        return 'S'
+        return 'S', proba[0][1]
 
 def get_pigmentation_skin_type(pigmentation_ans):
 
@@ -173,8 +173,8 @@ def get_pigmentation_skin_type(pigmentation_ans):
     print('Pigmentation:', proba)
 
     if prediction_result[0] == 0:
-        return 'N'
+        return 'N', proba[0][0]
     else:
-        return 'P'
+        return 'P', proba[0][1]
 
 
